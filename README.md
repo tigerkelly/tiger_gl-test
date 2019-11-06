@@ -1,7 +1,7 @@
 
 # Test program for **tiger_gl** library.
 
-Features:
+### Features:
 
 	1. No X11 required.
 	2. Simple to use and understand.
@@ -16,3 +16,15 @@ Features:
 		5. Button with icon support.
 		6. Touch screen support.
 		7. Many simple font sizes.
+
+### Building the program.
+
+You will need the **tiger_gl** and **utils** repositories and of course this repository.
+
+See **tiger_gl** repository for complile instructions.
+
+See **utils** repository for complile instructions.
+
+For the **tiger_gl-test** repository just type **make** after **tiger_gl** has been compiled.
+
+Note, this has only been compiled on a RPI 3B+ with the *Linux raspberrypi 4.19.75-v7+* version.
