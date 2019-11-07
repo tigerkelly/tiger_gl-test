@@ -16,14 +16,15 @@
 		5. Button with icon support.
 		6. Touch screen support.
 		7. Many simple font sizes.
+		8. Support for video.
 
 ### Building the program.
 
 You will need the **tiger_gl** and **utils** repositories and of course this repository.
 
-See **tiger_gl** repository for complile instructions.
+See **[tiger_gl](https://github.com/tigerkelly/tiger_gl)** repository for complile instructions.
 
-See **utils** repository for complile instructions.
+See **[utils}(https://github.com/tigerkelly/utils)** repository for complile instructions.
 
 For the **tiger_gl-test** repository just type **make** after **tiger_gl** has been compiled.
 

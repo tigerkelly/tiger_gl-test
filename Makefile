@@ -4,7 +4,7 @@ CC=gcc
 
 SRC=tiger_gl_test.c
 
-LDFLAGS=-g -L../utils/libs -L./ -L../tiger_gl -L/usr/local/lib -ltiger_gl -lini -lmiscutils -lstrutils -llogutils -lfreeimage -lz -lpthread -lm
+LDFLAGS=-g -L../utils/libs -L./ -L../tiger_gl -L../utils/libs -L/usr/local/lib -ltiger_gl -lini -lmiscutils -lstrutils -llogutils -lfreeimage -lz -lpthread -lm
 CFLAGS=-std=gnu99
 
 CFLAGS += -g -Wall -O2 -I./ -I../utils/incs -I/usr/include/directfb -I/usr/include/directfb/direct -I../tiger_gl
