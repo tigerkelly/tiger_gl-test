@@ -24,7 +24,7 @@ You will need the **tiger_gl** and **utils** repositories and of course this rep
 
 See **[tiger_gl](https://github.com/tigerkelly/tiger_gl)** repository for complile instructions.
 
-See **[utils}(https://github.com/tigerkelly/utils)** repository for complile instructions.
+See **[utils](https://github.com/tigerkelly/utils)** repository for complile instructions.
 
 For the **tiger_gl-test** repository just type **make** after **tiger_gl** has been compiled.
 
