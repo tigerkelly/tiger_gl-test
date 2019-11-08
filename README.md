@@ -28,4 +28,8 @@ See **[utils](https://github.com/tigerkelly/utils)** repository for complile ins
 
 For the **tiger_gl-test** repository just type **make** after **tiger_gl** has been compiled.
 
+This example program is using the 5" touch monitor from Elecrow, model QDtech MPI5001. Which has  800x480 resolution but I increased the resolution to 1024x768.  With this higher resolution cause some lose of quality.
+
+See my /boot/config.txt file in the code.
+
 Note, this has only been compiled on a RPI 3B+ with the *Linux raspberrypi 4.19.75-v7+* version.
