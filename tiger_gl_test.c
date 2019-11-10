@@ -21,9 +21,9 @@ pthread_t pauseThread;
 void handleSignal(int sig);
 
 void *pausePrg(void *param);
-void btnCallback(TglWidget *tw, int x, int y, int pp);
-void ckbCallback(TglWidget *tw, int x, int y, int pp);
-void radioCallback(TglWidget *tw, int x, int y, int pp);
+void btnCallback(TglWidget *tw, uint16_t x, uint16_t y, uint16_t pp);
+void ckbCallback(TglWidget *tw, uint16_t x, uint16_t y, uint16_t pp);
+void radioCallback(TglWidget *tw, uint16_t x, uint16_t y, uint16_t pp);
 
 int main(int argc, char * argv[]) {
 
@@ -97,8 +97,12 @@ int main(int argc, char * argv[]) {
     tglWidgetSetRadioGroup(tglRadio2, 100);
     tglWidgetSetFgBgColor(tglRadio2, TGL_COLOR_WHITE, TGL_COLOR_BLACK);
 
+	TglWidget *tglPbar = tglWidgetProgressBar(805, 285, 210, 45, true, TGL_COLOR_LIGHTGREEN);
+    tglWidgetSetFont(tglRadio2, "FONT_12x20");
+	tglWidgetSetProgressBarNum(tglPbar, 45);
+
 	tglStatus = tglWidgetLabel("status", 2, 605, 800, 40);
-    tglWidgetSetFont(tglStatus, "FONT_12x20");
+    tglWidgetSetFont(tglPbar, "FONT_16x26");
     tglWidgetSetFgBgColor(tglStatus, TGL_COLOR_RED, TGL_COLOR_WHITE);
 
 	tglWidgetAddCallback(tglButton, btnCallback, TOUCH_UP);
@@ -108,7 +112,7 @@ int main(int argc, char * argv[]) {
     tglWidgetAddCallback(tglRadio1, radioCallback, TOUCH_UP);
     tglWidgetAddCallback(tglRadio2, radioCallback, TOUCH_UP);
 
-	tglWidgetRegister(tglImage, tglButton, tglButton2, tglQuit, tglCheckbox, tglRadio1, tglRadio2, tglStatus);
+	tglWidgetRegister(tglImage, tglButton, tglButton2, tglQuit, tglPbar, tglCheckbox, tglRadio1, tglRadio2, tglStatus);
 
 	tglDrawVideoImage(tglImage, img);
 
@@ -120,15 +124,15 @@ int main(int argc, char * argv[]) {
 }
 
 // p=pressure value.
-void radioCallback(TglWidget *tw, int x, int y, int p) {
+void radioCallback(TglWidget *tw, uint16_t x, uint16_t y, uint16_t p) {
 }
 
 // p=pressure value.
-void ckbCallback(TglWidget *tw, int x, int y, int p) {
+void ckbCallback(TglWidget *tw, uint16_t x, uint16_t y, uint16_t p) {
 }
 
 // p=pressure value.
-void btnCallback(TglWidget *tw, int x, int y, int p) {
+void btnCallback(TglWidget *tw, uint16_t x, uint16_t y, uint16_t p) {
     // printf("tt.c btnCallback %s %d, %d, %d\n", tw->text, x, y, p);
     // printf("tt.c button data: '%s'\n", (char *)tglWidgetGetData(tw));
 

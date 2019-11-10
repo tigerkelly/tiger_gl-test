@@ -10,8 +10,9 @@ CFLAGS=-std=gnu99
 CFLAGS += -g -Wall -O2 -I./ -I../utils/incs -I/usr/include/directfb -I/usr/include/directfb/direct -I../tiger_gl
 
 PRG=tiger_gl_test
+PRG2=video-example
 
-all: $(PRG)
+all: $(PRG) $(PRG2)
 
 $(PRG): tiger_gl_test.o ../tiger_gl/libtiger_gl.a
 	$(CC) tiger_gl_test.o -o $(PRG) $(LDFLAGS)
@@ -19,6 +20,12 @@ $(PRG): tiger_gl_test.o ../tiger_gl/libtiger_gl.a
 tt.o: tiger_gl_test.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+$(PRG2): video-example.o ../tiger_gl/libtiger_gl.a
+	$(CC) video-example.o -o $(PRG2) $(LDFLAGS)
+
+video-example.o: video-example.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
-	rm -rf tiger_gl_test.o $(PRG)
+	rm -rf tiger_gl_test.o video-example.o $(PRG) $(PRG2)
 
