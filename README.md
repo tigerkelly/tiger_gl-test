@@ -9,15 +9,16 @@
 	4. Developed for Raspberry Pi.
 	5. Current widgets are:
 
-		1. Image.
-		2. Label.
-		3. Checkbox.
-		4. Radio Button.
-		5. Progress bar.
-		6. Button with icon support.
-		7. Touch screen support.
-		8. Many simple font sizes.
-		9. Support for video.
+		- Image.
+		- Label.
+		- Checkbox.
+		- Radio Button.
+		- Progress bar.
+		- Spinner
+		- Button with icon support.
+		- Touch screen support.
+		- Many simple font sizes.
+		- Support for video.
 
 ### Building the program.
 

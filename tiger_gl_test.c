@@ -24,6 +24,7 @@ void *pausePrg(void *param);
 void btnCallback(TglWidget *tw, uint16_t x, uint16_t y, uint16_t pp);
 void ckbCallback(TglWidget *tw, uint16_t x, uint16_t y, uint16_t pp);
 void radioCallback(TglWidget *tw, uint16_t x, uint16_t y, uint16_t pp);
+void spinnerCallback(TglWidget *tw, uint16_t x, uint16_t y, uint16_t pp);
 
 int main(int argc, char * argv[]) {
 
@@ -101,6 +102,10 @@ int main(int argc, char * argv[]) {
     tglWidgetSetFont(tglPbar, "FONT_12x20");
 	tglWidgetSetProgressBarNum(tglPbar, 45);
 
+	TglWidget *tglSpinner = tglWidgetSpinner(2, 650, 210, 55, "Kelly,was here,and,gone");
+    tglWidgetSetFont(tglSpinner, "FONT_12x20");
+    tglWidgetSetSpinnerNum(tglSpinner, 2);
+
 	tglStatus = tglWidgetLabel("status", 2, 605, 800, 40);
     tglWidgetSetFont(tglStatus, "FONT_16x26");
     tglWidgetSetFgBgColor(tglStatus, TGL_COLOR_RED, TGL_COLOR_WHITE);
@@ -111,8 +116,9 @@ int main(int argc, char * argv[]) {
 	tglWidgetAddCallback(tglCheckbox, ckbCallback, TOUCH_UP);
     tglWidgetAddCallback(tglRadio1, radioCallback, TOUCH_UP);
     tglWidgetAddCallback(tglRadio2, radioCallback, TOUCH_UP);
+    tglWidgetAddCallback(tglSpinner, spinnerCallback, TOUCH_UP);
 
-	tglWidgetRegister(tglImage, tglButton, tglButton2, tglQuit, tglPbar, tglCheckbox, tglRadio1, tglRadio2, tglStatus);
+	tglWidgetRegister(tglImage, tglButton, tglButton2, tglSpinner, tglQuit, tglPbar, tglCheckbox, tglRadio1, tglRadio2, tglStatus);
 
 	tglDrawVideoImage(tglImage, img);
 
@@ -121,6 +127,10 @@ int main(int argc, char * argv[]) {
 	tglFbClose();
 
 	return 0;
+}
+
+// p=pressure value.
+void spinnerCallback(TglWidget *tw, uint16_t x, uint16_t y, uint16_t p) {
 }
 
 // p=pressure value.
@@ -148,7 +158,7 @@ void btnCallback(TglWidget *tw, uint16_t x, uint16_t y, uint16_t p) {
 		tglWidgetSetLabelText(tglStatus, "Quiting program, please stand by.");
 		printf("Quit was touched with %d pressure.\n", p);
 		printf("Button Quit data: '%s'\n", (char *)tglWidgetGetData(tw));
-		sleep(2);
+		sleep(1);
 		stopThread = true;
     }
 }
