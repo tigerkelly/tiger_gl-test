@@ -102,7 +102,7 @@ int main(int argc, char * argv[]) {
     tglWidgetSetFont(tglPbar, "FONT_12x20");
 	tglWidgetSetProgressBarNum(tglPbar, 45);
 
-	TglWidget *tglSpinner = tglWidgetSpinner(2, 650, 210, 55, "Kelly,was here,and,gone");
+	TglWidget *tglSpinner = tglWidgetSpinner(2, 650, 230, 55, "Kelly,was here,and,very much gone away.");
     tglWidgetSetFont(tglSpinner, "FONT_12x20");
     tglWidgetSetSpinnerNum(tglSpinner, 2);
 
