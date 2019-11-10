@@ -98,11 +98,11 @@ int main(int argc, char * argv[]) {
     tglWidgetSetFgBgColor(tglRadio2, TGL_COLOR_WHITE, TGL_COLOR_BLACK);
 
 	TglWidget *tglPbar = tglWidgetProgressBar(805, 285, 210, 45, true, TGL_COLOR_LIGHTGREEN);
-    tglWidgetSetFont(tglRadio2, "FONT_12x20");
+    tglWidgetSetFont(tglPbar, "FONT_12x20");
 	tglWidgetSetProgressBarNum(tglPbar, 45);
 
 	tglStatus = tglWidgetLabel("status", 2, 605, 800, 40);
-    tglWidgetSetFont(tglPbar, "FONT_16x26");
+    tglWidgetSetFont(tglStatus, "FONT_16x26");
     tglWidgetSetFgBgColor(tglStatus, TGL_COLOR_RED, TGL_COLOR_WHITE);
 
 	tglWidgetAddCallback(tglButton, btnCallback, TOUCH_UP);
