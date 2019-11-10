@@ -13,10 +13,11 @@
 		2. Label.
 		3. Checkbox.
 		4. Radio Button.
-		5. Button with icon support.
-		6. Touch screen support.
-		7. Many simple font sizes.
-		8. Support for video.
+		5. Progress bar.
+		6. Button with icon support.
+		7. Touch screen support.
+		8. Many simple font sizes.
+		9. Support for video.
 
 ### Building the program.
 
