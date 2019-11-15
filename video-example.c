@@ -36,12 +36,11 @@ void btnCallback(TglWidget *tw, uint16_t x, uint16_t y, uint16_t pp);
 
 /* This fragment of a program reads a video stream and places each frame into
  * a TglImage type.
- * The video being read is from a modified raspivid program that places a 
+ * The video being read is from a modified RaspiVid program that places a 
  * 7 byte header on each video frame.  The headers first 3 bytes are KW: and
  * the next 4 bytes is the frame length in bytes. See the restart_cam.sh script,
  * which is being run from a RPI zero W.
- * The video stream is MJPEG becaus I could not find a H.264 decoder I could use or
- * compile.
+ * The video stream is MJPEG because I could not find a H.264 decoder I could use or compile.
  * I have used Xuggle to decode H.264 video but it is for Java and this is a C example.
  */
 
