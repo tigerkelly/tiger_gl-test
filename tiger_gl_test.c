@@ -60,6 +60,8 @@ int main(int argc, char * argv[]) {
         return 1;
     }
 
+	tglDrawFillScreen(TGL_COLOR_BLACK);
+
 	TglWidget *tglImage = tglWidgetImage(0, 0, 800, 600);
 
 	TGLBITMAP * img = tglImageLoad("tiger.png");
@@ -78,47 +80,56 @@ int main(int argc, char * argv[]) {
 
 	TglWidget *tglQuit = tglWidgetButton("Quit", 805, 580, 210, 140);
     tglWidgetSetData(tglQuit, "Hello quit button.");
-    tglWidgetSetFont(tglQuit, "FONT_22X36");
+    tglWidgetSetFont(tglQuit, "FreeSansBold_52X54");
     tglWidgetSetFgBgColor(tglQuit, TGL_COLOR_BLACK, TGL_COLOR_LIGHTGRAY);
 
-	TglWidget *tglCheckbox = tglWidgetCheckbox("Checked It?", 805, 380, 210, 45);
+	TglWidget *tglCheckbox = tglWidgetCheckbox("Checked It?", 237, 650, 210, 45);
     tglWidgetSetData(tglCheckbox, "Hello Checkbox.");
     tglWidgetSetFont(tglCheckbox, "FONT_12x20");
     tglWidgetSetFgBgColor(tglCheckbox, TGL_COLOR_WHITE, TGL_COLOR_BLACK);
 
-    TglWidget *tglRadio1 = tglWidgetRadio("Radio1", 805, 435, 210, 45);
+    TglWidget *tglRadio1 = tglWidgetRadio("Radio1", 451, 650, 125, 45);
     tglWidgetSetData(tglRadio1, "Hello Radio 1.");
     tglWidgetSetFont(tglRadio1, "FONT_12x20");
     tglWidgetSetRadioGroup(tglRadio1, 100);
     tglWidgetSetFgBgColor(tglRadio1, TGL_COLOR_WHITE, TGL_COLOR_BLACK);
 
-    TglWidget *tglRadio2 = tglWidgetRadio("Radio2", 805, 500, 210, 45);
+    TglWidget *tglRadio2 = tglWidgetRadio("Radio2", 581, 650, 125, 45);
     tglWidgetSetData(tglRadio2, "Hello Radio 2.");
     tglWidgetSetFont(tglRadio2, "FONT_12x20");
     tglWidgetSetRadioGroup(tglRadio2, 100);
     tglWidgetSetFgBgColor(tglRadio2, TGL_COLOR_WHITE, TGL_COLOR_BLACK);
 
-	TglWidget *tglPbar = tglWidgetProgressBar(805, 285, 210, 45, true, TGL_COLOR_LIGHTGREEN);
+	TglWidget *tglPbar = tglWidgetProgressBar(805, 290, 210, 45, true, TGL_COLOR_LIGHTGREEN);
     tglWidgetSetFont(tglPbar, "FONT_12x20");
 	tglWidgetSetProgressBarNum(tglPbar, 45);
 
-	TglWidget *tglSpinner = tglWidgetSpinner(2, 650, 230, 55, "Kelly,was here,and,very much gone away.");
-    tglWidgetSetFont(tglSpinner, "FONT_12x20");
-    tglWidgetSetSpinnerNum(tglSpinner, 2);
+	TglWidget *tglSpinner = tglWidgetSpinner(805, 340, 210, 65, "Tom T. Hall,Harry,Sue,Mary,Kelly,Richard,Keith,Sharon,Gean");
+    tglWidgetSetFont(tglSpinner, "FreeSerif_33X33");
+	tglWidgetSetSelection(tglSpinner, 1);
+
+	TglWidget *tglSpinner2 = tglWidgetSpinner(2, 650, 230, 55, "Kelly,was here,and,very much gone away.");
+    tglWidgetSetFont(tglSpinner2, "FreeSerif_33X33");
+    tglWidgetSetSelection(tglSpinner2, 2);
 
 	tglStatus = tglWidgetLabel("status", 2, 605, 800, 40);
     tglWidgetSetFont(tglStatus, "FONT_16x26");
     tglWidgetSetFgBgColor(tglStatus, TGL_COLOR_RED, TGL_COLOR_WHITE);
 
-	tglWidgetAddCallback(tglButton, btnCallback, TOUCH_UP);
+	// The last argument is whether the event should occur at touch or touch release.
+	// With the argument of TOUCH UP then you can abort a touch if you slide your
+	// finger outside of a widget but do not silde it to another widget with TOUCH_UP set
+	// or it will activate that widget.
+	tglWidgetAddCallback(tglButton, btnCallback, TOUCH_DOWN);
 	tglWidgetAddCallback(tglButton2, btnCallback, TOUCH_UP);
 	tglWidgetAddCallback(tglQuit, btnCallback, TOUCH_UP);
 	tglWidgetAddCallback(tglCheckbox, ckbCallback, TOUCH_UP);
     tglWidgetAddCallback(tglRadio1, radioCallback, TOUCH_UP);
     tglWidgetAddCallback(tglRadio2, radioCallback, TOUCH_UP);
     tglWidgetAddCallback(tglSpinner, spinnerCallback, TOUCH_UP);
+    tglWidgetAddCallback(tglSpinner2, spinnerCallback, TOUCH_UP);
 
-	tglWidgetRegister(tglImage, tglButton, tglButton2, tglSpinner, tglQuit, tglPbar, tglCheckbox, tglRadio1, tglRadio2, tglStatus);
+	tglWidgetRegister(tglImage, tglButton, tglButton2, tglSpinner2, tglQuit, tglPbar, tglSpinner, tglCheckbox, tglRadio1, tglRadio2, tglStatus);
 
 	tglDrawVideoImage(tglImage, img);
 
@@ -131,6 +142,7 @@ int main(int argc, char * argv[]) {
 
 // p=pressure value.
 void spinnerCallback(TglWidget *tw, uint16_t x, uint16_t y, uint16_t p) {
+	printf("Selected: %s\n", tglWidgetGetSelection(tw));
 }
 
 // p=pressure value.

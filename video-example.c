@@ -85,6 +85,9 @@ int main( int argc, char *argv[]) {
 		exit(-1);
 	}
 
+	// Clear screen.
+	tglDrawFillScreen(TGL_COLOR_BLACK);
+
 	// Create a TglImage widget.
 	// Notice I am using a small video size to help with FPS.
 	// The large the frame size the smaller FPS max can be.
@@ -112,7 +115,7 @@ int main( int argc, char *argv[]) {
 // Converts raw frames to a TGLBITMAP
 TGLBITMAP *readJPEGMemory(unsigned char *frame, int frameLength) {
 
-	return (TGLBITMAP *)tglImageLoadMem(frame, frameLength);
+	return (TGLBITMAP *)tglImageLoadMem(frame, frameLength, "jpeg");
 }
 
 /* This reads the video stream.  It first reads the 7 byte header
